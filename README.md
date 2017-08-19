@@ -1,3 +1,5 @@
+[![Build](https://travis-ci.org/zg2pro/spring-rest-basis-example.svg?branch=master)](https://travis-ci.org/zg2pro/spring-rest-basis-example)
+
 # spring-rest-basis-example
 example of code using my own library
 
