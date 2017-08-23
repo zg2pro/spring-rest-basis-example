@@ -46,7 +46,7 @@ public class TestController {
                 "https://raw.githubusercontent.com/zg2pro/spring-rest-basis-example/master/src/test/java/json/mock/example.json",
                 ExampleJson.class
         );
-        return ej.getMessageTest() + "<br/><br/>" + ej.getName();
+        return ej.getMessageTest() + "<br/><br/>&nbsp;&nbsp;--" + ej.getName();
     }
 
 }

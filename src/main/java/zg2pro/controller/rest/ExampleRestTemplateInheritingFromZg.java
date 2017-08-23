@@ -1,8 +1,8 @@
 package zg2pro.controller.rest;
 
+import com.github.zg2pro.spring.rest.basis.template.Zg2proRestTemplate;
 import java.util.ArrayList;
 import java.util.List;
-import net.zg2pro.utilities.spring.rest.template.Zg2proRestTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Service;

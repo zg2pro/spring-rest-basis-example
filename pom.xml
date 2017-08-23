@@ -34,9 +34,8 @@
         <dependency>
             <groupId>com.github.zg2pro</groupId>
             <artifactId>spring-rest-basis</artifactId>
-            <version>0.1</version>
+            <version>0.2</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->
         <dependency>
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>
