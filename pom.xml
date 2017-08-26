@@ -123,6 +123,29 @@
                     </archive>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <id>default-cli</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>java</executable>
+                            <!-- optional -->
+                            <workingDirectory>/tmp</workingDirectory>
+                            <arguments>
+                                <argument>-jar</argument>
+                                <argument>-agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n</argument>
+                                <argument>${basedir}/target/spring-rest-basis-example-${project.version}.jar</argument>
+                            </arguments>
+                        </configuration>                        
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
         
