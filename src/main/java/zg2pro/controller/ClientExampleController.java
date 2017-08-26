@@ -1,5 +1,8 @@
 package zg2pro.controller;
 
+import com.github.zg2pro.spring.rest.basis.exceptions.RestTemplateException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import javax.inject.Inject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,7 +37,7 @@ class ExampleJson {
  * @author zg2pro
  */
 @Controller
-public class TestController {
+public class ClientExampleController {
 
     @Inject
     private ExampleRestTemplateInheritingFromZg restTemplate;
@@ -47,6 +50,19 @@ public class TestController {
                 ExampleJson.class
         );
         return ej.getMessageTest() + "<br/><br/>&nbsp;&nbsp;--" + ej.getName();
+    }
+
+    @RequestMapping("/oops")
+    public @ResponseBody
+    String oops() {
+        try {
+            String str = restTemplate.getForObject("http://localhost:8080/homeMadeException", String.class);
+            return str;
+        } catch (RestTemplateException rte) {
+            StringWriter sw = new StringWriter();
+            rte.printStackTrace(new PrintWriter(sw));
+            return sw.toString().replaceAll("at ", "<br/>&nbsp;&nbsp;&nbsp;&nbsp;at ").replaceAll("Caused by", "<br/>Caused by");
+        }
     }
 
 }

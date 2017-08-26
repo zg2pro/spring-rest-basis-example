@@ -22,6 +22,27 @@
         <spring.boot.version>2.0.0.M3</spring.boot.version>
     </properties>
 
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+	
+    <developers>
+        <developer>
+            <name>Gregory Anne</name>
+            <email>englishblazere@free.fr</email>
+            <url>https://github.com/zg2pro</url>
+        </developer>
+        <developer>
+            <name>Moses Meyer</name>
+            <email>xxxxx</email>
+            <url>https://github.com/MosesMeyer</url>
+        </developer>
+    </developers>
     <scm>
         <connection>scm:git:https://github.com/zg2pro/spring-rest-basis.git</connection>
         <developerConnection>scm:git:git@github.com:zg2pro/spring-rest-basis.git</developerConnection>
@@ -101,6 +122,29 @@
                         </manifest>
                     </archive>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <id>default-cli</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>java</executable>
+                            <!-- optional -->
+                            <workingDirectory>/tmp</workingDirectory>
+                            <arguments>
+                                <argument>-jar</argument>
+                                <argument>-agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n</argument>
+                                <argument>${basedir}/target/spring-rest-basis-example-${project.version}.jar</argument>
+                            </arguments>
+                        </configuration>                        
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
