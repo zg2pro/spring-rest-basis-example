@@ -20,6 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring.boot.version>2.0.0.M3</spring.boot.version>
+        <spring.rest.basis.version>0.2</spring.rest.basis.version>
     </properties>
 
 
@@ -55,7 +56,7 @@
         <dependency>
             <groupId>com.github.zg2pro</groupId>
             <artifactId>spring-rest-basis</artifactId>
-            <version>0.2</version>
+            <version>${spring.rest.basis.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.inject</groupId>
