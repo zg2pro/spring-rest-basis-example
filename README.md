@@ -1,5 +1,6 @@
 [![Build](https://travis-ci.org/zg2pro/spring-rest-basis-example.svg?branch=master)](https://travis-ci.org/zg2pro/spring-rest-basis-example)
 [![MIT](https://img.shields.io/npm/l/inferno.svg?style=flat-square)](https://github.com/zg2pro/spring-rest-basis-example/blob/master/LICENSE.md)
+[![BCH compliance](https://bettercodehub.com/edge/badge/zg2pro/spring-rest-basis-example?branch=master)](https://bettercodehub.com/)
 
 # spring-rest-basis-example
 example of code using my own library
