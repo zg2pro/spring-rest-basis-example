@@ -56,12 +56,13 @@ public class ClientExampleController {
     public @ResponseBody
     String oops() {
         try {
-            String str = restTemplate.getForObject("http://localhost:8080/homeMadeException", String.class);
-            return str;
+            return restTemplate.getForObject("http://localhost:8080/homeMadeException", String.class);
         } catch (RestTemplateException rte) {
             StringWriter sw = new StringWriter();
             rte.printStackTrace(new PrintWriter(sw));
-            return sw.toString().replaceAll("at ", "<br/>&nbsp;&nbsp;&nbsp;&nbsp;at ").replaceAll("Caused by", "<br/>Caused by");
+            return sw.toString()
+                    .replaceAll("at ", "<br/>&nbsp;&nbsp;&nbsp;&nbsp;at ")
+                    .replaceAll("Caused by", "<br/>Caused by");
         }
     }
 

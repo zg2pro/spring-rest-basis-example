@@ -1,6 +1,8 @@
 package zg2pro;
 
 import com.github.zg2pro.spring.safe.setup.fs.FsReady;
+import com.github.zg2pro.spring.safe.setup.security.PreAuthorizeAllRemoteStrategy;
+import zg2pro.services.PermissionCheckAnnotation;
 import com.github.zg2pro.spring.safe.setup.utc.UtcVerifier;
 import com.github.zg2pro.spring.safe.setup.utf8.Utf8Verifier;
 import java.io.File;
@@ -22,6 +24,14 @@ public class LibraryBoot {
         UtcVerifier.checkHostTimezone();
         Utf8Verifier.checkHostEncoding();
         return true;
+    }
+
+    @Bean
+    public Boolean checkSecurity() {
+        PreAuthorizeAllRemoteStrategy paars = new PreAuthorizeAllRemoteStrategy(PermissionCheckAnnotation.class,
+                PermissionCheckAnnotation.class.getPackage().getName() + ".one");
+        paars.processVerification();
+        return Boolean.TRUE;
     }
 
     public static void main(String[] args) {
