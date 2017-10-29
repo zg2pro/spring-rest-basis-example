@@ -1,7 +1,13 @@
 package zg2pro;
 
+import com.github.zg2pro.spring.safe.setup.fs.FsReady;
+import com.github.zg2pro.spring.safe.setup.utc.UtcVerifier;
+import com.github.zg2pro.spring.safe.setup.utf8.Utf8Verifier;
+import java.io.File;
+import java.nio.file.FileSystemException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 /**
  *
@@ -9,6 +15,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class LibraryBoot {
+
+    @Bean
+    public Boolean checkHost() throws FileSystemException {
+        FsReady.checkFileSystemIsReady(10, new File(System.getProperty("java.io.tmpdir")));
+        UtcVerifier.checkHostTimezone();
+        Utf8Verifier.checkHostEncoding();
+        return true;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(LibraryBoot.class, args);

@@ -20,7 +20,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring.boot.version>2.0.0.M3</spring.boot.version>
-        <spring.rest.basis.version>0.2</spring.rest.basis.version>
+        <spring.rest.basis.version>0.4</spring.rest.basis.version>
+        <spring.safe.setup.version>0.2</spring.safe.setup.version>
     </properties>
 
 
@@ -59,6 +60,17 @@
             <version>${spring.rest.basis.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.github.zg2pro</groupId>
+            <artifactId>spring-safe-setup</artifactId>
+            <version>${spring.safe.setup.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>
             <version>1</version>
@@ -67,6 +79,25 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring.boot.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-annotations</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>5.0.0.RC3</version>
         </dependency>
     </dependencies>
 
